@@ -1,5 +1,4 @@
-CREATE DATABASE University;
-USE University;
+
 CREATE TABLE Student (
     id BIGINT PRIMARY KEY,
     name VARCHAR(55),

@@ -1,2 +1,2 @@
-SELECT * FROM subject WHERE AVG(mark) > ( SELECT AVG(mark) FROM mark );
-SELECT * FROM student WHERE id IN ( SELECT student_id FROM payment GROUP BY student_id HAVING SUM(amount) < ( SELECT SUM(amount) FROM payment GROUP BY student_id ORDER BY SUM(amount) DESC LIMIT 1 ) );
+SELECT s.* FROM subject s WHERE ( SELECT AVG(m.mark) FROM mark m WHERE m.subject_id = s.id ) > ( SELECT AVG(m.mark) FROM mark m );
+SELECT st.* FROM student st WHERE ( SELECT AVG(p.amount) FROM payment p WHERE p.student_id = st.id ) < ( SELECT AVG(p.amount) FROM payment p );
