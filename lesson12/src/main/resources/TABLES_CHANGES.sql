@@ -1,1 +1,1 @@
-select * from student;
+ALTER TABLE mark ADD CONSTRAINT mark_payment_id_fkey FOREIGN KEY (payment_id) REFERENCES payment(id);
