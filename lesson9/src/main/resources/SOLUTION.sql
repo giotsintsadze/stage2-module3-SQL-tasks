@@ -1,0 +1,3 @@
+SELECT s.* FROM student s JOIN (SELECT student_id, AVG(mark) AS avg_mark FROM mark GROUP BY student_id) m ON s.id = m.student_id WHERE m.avg_mark > 8;
+SELECT s.id, s.name FROM student s JOIN mark m ON s.id = m.student_id WHERE m.mark > 7 GROUP BY s.id, s.name;
+SELECT s.id, s.name FROM student s JOIN payment p ON s.id = p.student_id WHERE YEAR(p.payment_date) = 2019 GROUP BY s.id, s.name HAVING COUNT(p.id) > 2;

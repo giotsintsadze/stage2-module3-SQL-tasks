@@ -1,0 +1,2 @@
+SELECT sub.* FROM subject sub JOIN mark m ON sub.id = m.subject_id GROUP BY sub.id HAVING AVG(m.mark) > (SELECT AVG(mark) FROM mark);
+SELECT s.* FROM student s JOIN payment p ON s.id = p.student_id WHERE p.amount < (SELECT AVG(amount) FROM payment);
